@@ -32,7 +32,7 @@ function handleRequest(req, rsp) {
       mycolor = colors[index];
       break;
     }
-    if (path.indexOf(colors[index] + '/') > -1) {
+    if (path.indexOf('/' + colors[index]) > -1) {
       mycolor = colors[index];
       break;
     }
