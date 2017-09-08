@@ -24,7 +24,6 @@ function handleRequest(req, rsp) {
   var host = req.headers['host'];
   var url_parts = url.parse(req.url, true);
   var path = url_parts.path;
-
   var mycolor = '';
 
   for (index = 0; index < colors.length; ++index) {
@@ -52,7 +51,12 @@ function handleRequest(req, rsp) {
     rsp.write("</HTML>\n");
   }
   else {
-    rsp.statusCode = 404;
+    rsp.statusCode = 200;
+
+    rsp.write("<HTML>\n");
+    rsp.write("<HEAD><TITLE>Default app</TITLE></HEAD>\n");
+    rsp.write("<BODY><H1>Default app</H1>\nDefault app</BODY>\n");
+    rsp.write("</HTML>\n");
   }
 
   rsp.end();
