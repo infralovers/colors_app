@@ -1,6 +1,9 @@
 # colors_app
 
-Dummy nodejs application which returns a colored paged based on color found either in host header or URL path.
+Dummy nodejs application which returns a colored paged based on color found in a variable environment.
+Variable name is "COLOR".
+If COLOR is empty, then "white" is used.
+A color could be in the HTML form: COLOR=#0f0f0f
 
 Its main purpose is to be used for demos :)
 
@@ -16,7 +19,7 @@ One can also use the docker-compose.yml file provided here: `docker-compose buil
 
 Use a command like this one:
 
-  `docker run --detach --rm=true --name=colors --hostname=colors colors`
+  `docker run --detach --rm=true --name=colors --env=blue --hostname=colors colors`
 
 Or use docker-compose:
 
@@ -26,7 +29,7 @@ Or use docker-compose:
 
 Use a command like this one:
 
-  `docker run -it --rm=true --name=colors --hostname=colors --entrypoint=sh colors`
+  `docker run -it --rm=true --name=colors --hostname=colors --env=blue --entrypoint=sh colors`
 
 Or use docker-compose:
 

@@ -5,3 +5,5 @@ services:
     container_name: colors
     build:
       context: .
+    environment:
+    - COLOR=blue
