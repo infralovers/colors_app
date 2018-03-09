@@ -3,39 +3,14 @@
 var debug = true;
 
 var serverport = 8080;
-var colors = [
-	"black",
-	"blue",
-	"brown",
-	"green",
-	"red",
-	"white",
-	"yellow",
-];
 
 var http = require('http');
-var url = require('url');
+var mycolor = process.env.COLOR || 'white';
 
 function handleRequest(req, rsp) {
   if (debug) {
-    console.log((new Date()) + ' Received request for ' + req.url);
+    console.log((new Date()) + ' Received request for color ' + mycolor + ' on URL ' + req.url);
   }
-
-  var host = req.headers['host'];
-  var url_parts = url.parse(req.url, true);
-  var path = url_parts.path;
-  var mycolor = '';
-
-  for (index = 0; index < colors.length; ++index) {
-    if (host.indexOf(colors[index] + '.') > -1) {
-      mycolor = colors[index];
-      break;
-    }
-    if (path.indexOf('/' + colors[index]) > -1) {
-      mycolor = colors[index];
-      break;
-    }
-  };
 
   if (mycolor != '') {
     var font_color = 'black';
@@ -65,5 +40,5 @@ function handleRequest(req, rsp) {
 var wsrv = http.createServer(handleRequest);
 
 wsrv.listen(serverport, function(){
-  console.log("Server listening on port %s", serverport);
+  console.log("Server listening on port %s for color %s", serverport, mycolor);
 });
