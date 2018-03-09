@@ -5,6 +5,10 @@ Variable name is "COLOR".
 If COLOR is empty, then "white" is used.
 A color could be in the HTML form: COLOR=#0f0f0f
 
+It is possible to pass some query string parameters to alter the behavior of the application:
+
+* 'burncpu' will make the application to compute square roots and consume a lot of CPU resources
+
 Its main purpose is to be used for demos :)
 
 # Building the container
@@ -34,3 +38,13 @@ Use a command like this one:
 Or use docker-compose:
 
   `docker-compose up`
+
+# Client
+
+Run:
+
+  `wrk 'http://127.0.0.1:8080/'`
+
+To simulate high CPU usage:
+
+  `wrk 'http://127.0.0.1:8080/?burncpu=true'`
