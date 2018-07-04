@@ -75,3 +75,9 @@ var wsrv = http.createServer(handleRequest);
 wsrv.listen(serverport, function(){
   console.log("Server listening on port %s for color %s", serverport, mycolor);
 });
+
+process.on('SIGTERM', function () {
+  wsrv.close(function () {
+    process.exit(0);
+  });
+});
