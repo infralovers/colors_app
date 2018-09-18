@@ -48,29 +48,18 @@ function handleRequest(req, rsp) {
     }
   }
 
-  if (mycolor != '') {
-    var font_color = 'black';
-    if (mycolor == 'black') {
-      font_color = 'white';
-    }
-
-    rsp.statusCode = 200;
-    rsp.setHeader("X-Processed-By", hostname);
-
-    rsp.write("<HTML>\n");
-    rsp.write("<HEAD><TITLE>" + mycolor + " app</TITLE></HEAD>\n");
-    rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\"><H1>" + mycolor + " app</H1>\n<H2>" + hostname + "</H2>\n" + mycolor + "</BODY>\n");
-    rsp.write("</HTML>\n");
+  var font_color = 'black';
+  if (mycolor == 'black') {
+    font_color = 'white';
   }
-  else {
-    rsp.statusCode = 200;
-    rsp.setHeader("X-Processed-By", hostname);
 
-    rsp.write("<HTML>\n");
-    rsp.write("<HEAD><TITLE>Default app</TITLE></HEAD>\n");
-    rsp.write("<BODY><H1>Default app</H1>\n<H2>" + hostname + "</H2>\nDefault app</BODY>\n");
-    rsp.write("</HTML>\n");
-  }
+  rsp.statusCode = 200;
+  rsp.setHeader("X-Processed-By", hostname);
+
+  rsp.write("<HTML>\n");
+  rsp.write("<HEAD><TITLE>" + mycolor + " app</TITLE></HEAD>\n");
+  rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\"><H1>" + mycolor + " app</H1>\n<H2>" + hostname + "</H2>\n" + mycolor + "</BODY>\n");
+  rsp.write("</HTML>\n");
 
   rsp.end();
 }
