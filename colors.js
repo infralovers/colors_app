@@ -6,8 +6,11 @@ var serverport = 8080;
 
 var http = require('http');
 var url = require('url');
+var os = require('os');
 
 var mycolor = process.env.COLOR || 'white';
+var hostname = os.hostname();
+
 
 // https://gist.githubusercontent.com/joelpt/3824024/raw/df31dca35b84ff3f2a4a4d8bd21606ae8c671bdd/squirt.js
 // The Babylonian Method
@@ -52,18 +55,20 @@ function handleRequest(req, rsp) {
     }
 
     rsp.statusCode = 200;
+    rsp.setHeader("X-Processed-By", hostname);
 
     rsp.write("<HTML>\n");
     rsp.write("<HEAD><TITLE>" + mycolor + " app</TITLE></HEAD>\n");
-    rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\"><H1>" + mycolor + " app</H1>\n" + mycolor + "</BODY>\n");
+    rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\"><H1>" + mycolor + " app</H1>\n<H2>" + hostname + "</H2>\n" + mycolor + "</BODY>\n");
     rsp.write("</HTML>\n");
   }
   else {
     rsp.statusCode = 200;
+    rsp.setHeader("X-Processed-By", hostname);
 
     rsp.write("<HTML>\n");
     rsp.write("<HEAD><TITLE>Default app</TITLE></HEAD>\n");
-    rsp.write("<BODY><H1>Default app</H1>\nDefault app</BODY>\n");
+    rsp.write("<BODY><H1>Default app</H1>\n<H2>" + hostname + "</H2>\nDefault app</BODY>\n");
     rsp.write("</HTML>\n");
   }
 
