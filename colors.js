@@ -56,6 +56,7 @@ function handleRequest(req, rsp) {
   rsp.statusCode = 200;
   rsp.setHeader("X-Processed-By", hostname);
 
+  rsp.write("<!DOCTYPE html>\n");
   rsp.write("<HTML>\n");
   rsp.write("<HEAD><TITLE>" + mycolor + " app</TITLE></HEAD>\n");
   rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\"><H1>" + mycolor + " app</H1>\n<H2>" + hostname + "</H2>\n" + mycolor + "</BODY>\n");
