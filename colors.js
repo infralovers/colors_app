@@ -56,10 +56,14 @@ function handleRequest(req, rsp) {
   rsp.statusCode = 200;
   rsp.setHeader("X-Processed-By", hostname);
 
-  rsp.write("<!DOCTYPE html>\n");
-  rsp.write("<HTML>\n");
-  rsp.write("<HEAD><TITLE>" + mycolor + " app</TITLE></HEAD>\n");
-  rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\"><H1>" + mycolor + " app</H1>\n<H2>" + hostname + "</H2>\n" + mycolor + "</BODY>\n");
+  rsp.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"\n   \"http://www.w3.org/TR/html4/strict.dtd\">\n");
+  rsp.write("<HTML lang=\"en-US\">\n");
+  rsp.write("<HEAD>\n<TITLE>" + mycolor + " app</TITLE>\n<META charset=\"UTF-8\">\n</HEAD>\n");
+  rsp.write("<BODY style=\"color: " + font_color + "; background-color:" + mycolor + ";\">\n");
+  rsp.write("<H1>" + mycolor + " app</H1>\n");
+  rsp.write("<H2>" + hostname + "</H2>\n");
+  rsp.write("<div>" + mycolor + "</div>\n");
+  rsp.write("</BODY>\n");
   rsp.write("</HTML>\n");
 
   rsp.end();
