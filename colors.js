@@ -34,16 +34,16 @@ function squirt(n, g) {
 }
 
 function handleRequest(req, rsp) {
-  var burncpu = false;
+  var burncpu = 0;
   var query = url.parse(req.url, true).query;
 
   if (debug) {
     console.log((new Date()) + ' Received request for color ' + mycolor + ' on URL ' + req.url);
   }
 
-  if (query.burncpu) {
+  if (query.burncpu > 1) {
     var x = 0.0001;
-    for (var i = 0; i < 1000000; i++) {
+    for (var i = 0; i < query.burncpu; i++) {
       x = squirt(x);
     }
   }
