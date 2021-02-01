@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:latest
 MAINTAINER Baptiste Assmann <bedis9@gmail.com>
 
 RUN apk add -U nodejs
