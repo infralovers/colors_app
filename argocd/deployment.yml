@@ -18,7 +18,7 @@ spec:
         - name: myregistrykey
       containers:
       - name: red
-        image: myregistry.int.hapro.xyz/colorslatest
+        image: myregistry.int.hapro.xyz/colors:latest
         env:
         - name: COLOR
           value: red
