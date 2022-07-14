@@ -5,4 +5,4 @@ LABEL MAINTAINER=mbuchleitner@infralovers.com
 COPY colors.js /
 COPY index.html /
 
-ENTRYPOINT [ "/usr/bin/node", "/colors.js" ]
+ENTRYPOINT [ "/usr/local/bin/node", "/colors.js" ]
