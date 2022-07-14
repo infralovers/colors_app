@@ -1,8 +1,8 @@
-FROM alpine:latest
-MAINTAINER Baptiste Assmann <bedis9@gmail.com>
+FROM docker.io/node:gallium-slim
 
-RUN apk add -U nodejs
+LABEL MAINTAINER=mbuchleitner@infralovers.com
 
-ADD colors.js /
+COPY colors.js /
+COPY index.html /
 
 ENTRYPOINT [ "/usr/bin/node", "/colors.js" ]
