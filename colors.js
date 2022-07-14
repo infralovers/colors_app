@@ -119,6 +119,7 @@ function handleIdx(req, res) {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.setHeader("X-Processed-By", hostname);
+  res.setHeader("X-Processed-Color", mycolor);
   fs.readFile(__dirname + '/index.html', 'utf-8', function (error, data) {
     if (error) {
       console.log((new Date()) + ' error on URL ' + req.url + ': ' + error);
