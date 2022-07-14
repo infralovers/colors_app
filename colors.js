@@ -67,7 +67,7 @@ function handleReady(req, res) {
 var lIdx = 0
 
 function handleLive(req, res) {
-  console.log((new Date()) + ' Received ready request ' + lIdx + ' of ' + liveRequestCount);
+  console.log((new Date()) + ' Received live request ' + lIdx + ' of ' + liveRequestCount);
 
   if (lIdx < readyRequestCount) {
     lIdx += 1
