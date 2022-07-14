@@ -115,6 +115,12 @@ function handleIdx(req, res) {
     }
   }
 
+  const headerItemList = []
+
+  for (const headerItem of Object.keys(req.headers).sort()) {
+    headerItemList.push(`<tr><td>${headerItem}:</td><td>${req.headers[headerItem]}</td></tr>`);
+  }
+
   const htmlFile = 'index.html';
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
@@ -126,9 +132,12 @@ function handleIdx(req, res) {
       res.writeHead(404);
       res.write('Whoops! File not found!');
     } else {
+
       data = data.replace(/\$background_color/g, mycolor);
       data = data.replace(/\$font_color/g, font_color);
       data = data.replace(/\$hostname/g, hostname);
+      data = data.replace(/\$headers/g, headerItemList.join('\n'))
+
       res.write(data);
     }
     res.end();
