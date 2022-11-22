@@ -1,3 +1,14 @@
+## 2.2.0 (2022-11-22)
+
+#### Feature
+
+* multi-arch support on gh action container build (bd5dd81a)
+
+#### Chores
+
+* **ci:** commit changes from go-semantic-release (6ee64e52)
+
+
 ## 2.1.0 (2022-11-22)
 
 #### Feature
