@@ -1,3 +1,14 @@
+## 2.2.2 (2023-03-16)
+
+#### Bug Fixes
+
+* gh action update (#5) (e28520aa)
+
+#### Chores
+
+* **ci:** commit changes from go-semantic-release (de0050ad)
+
+
 ## 2.2.1 (2022-11-22)
 
 #### Bug Fixes
