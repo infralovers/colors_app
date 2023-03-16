@@ -76,7 +76,7 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
       with:
-        platforms: 'arm64,amd64'
+        platforms: 'arm64,arm,amd64'
 
     - name: Cache Docker layers
       uses: actions/cache@v2
@@ -104,14 +104,14 @@ jobs:
 
     - name: Build and push
       id: docker_build
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v3
       with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' && needs.prebuild.outputs.version != '' }}
           tags: ${{ steps.prep.outputs.tags }}
-          platforms: 'arm64,amd64'
+          platforms: 'arm64,arm,amd64'
 
   release:
     needs: [ prebuild, build ]
