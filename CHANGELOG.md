@@ -1,3 +1,23 @@
+## 2.3.0 (2023-03-21)
+
+#### Feature
+
+* tag triggers push (2a379ce9)
+* tag triggers push (6883c795)
+
+#### Bug Fixes
+
+* cleanup of action (ffe62fbe)
+
+#### Code Refactoring
+
+* gh action (#6) (57011596)
+
+#### Chores
+
+* **ci:** commit changes from go-semantic-release (e9a60a81)
+
+
 ## 2.2.2 (2023-03-16)
 
 #### Bug Fixes
