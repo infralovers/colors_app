@@ -1,3 +1,10 @@
+## 2.3.3 (2023-03-21)
+
+#### Bug Fixes
+
+* version and latest tags (086cf47d)
+
+
 ## 2.3.2 (2023-03-21)
 
 #### Bug Fixes
