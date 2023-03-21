@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.semrel.outputs.version }}
+      labels: ${{ steps.labels.outputs.labels }}
     steps:
     - uses: actions/checkout@v3
 
@@ -35,6 +36,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         prepend: true
         dry: true
+
 
   build:
     runs-on: ubuntu-latest
@@ -68,6 +70,21 @@ jobs:
         fi
         echo "settings tag ${TAGS}"
         echo "tags=${TAGS}" >> $GITHUB_OUTPUT
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ${{ steps.prep.outputs.tags }}
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=sha
+        labels: |
+          org.opencontainers.image.title=${{ github.repository }}
+          org.opencontainers.image.vendor=${{ github.repository_owner }}
 
     - name: Set up Docker Buildx
       id: buildx
@@ -104,14 +121,15 @@ jobs:
 
     - name: Build and push
       id: docker_build
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v4
       with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' && needs.prebuild.outputs.version != '' }}
-          tags: ${{ steps.prep.outputs.tags }}
-          platforms: 'arm64,arm,amd64'
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          platforms: 'arm64,amd64'
 
   release:
     needs: [ prebuild, build ]
