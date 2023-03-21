@@ -141,5 +141,5 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
       if: steps.generate_changelog.outputs.version != ''
       with:
-        commit_message: 'chore(ci): commit changes from go-semantic-release'
+        commit_message: 'commit changes from go-semantic-release'
         file_pattern: CHANGELOG.md
