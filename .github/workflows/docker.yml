@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.semrel.outputs.version }}
-      labels: ${{ steps.labels.outputs.labels }}
     steps:
     - uses: actions/checkout@v3
 
@@ -36,7 +35,6 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         prepend: true
         dry: true
-
 
   build:
     runs-on: ubuntu-latest
