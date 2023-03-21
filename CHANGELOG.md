@@ -1,3 +1,14 @@
+## 2.3.1 (2023-03-21)
+
+#### Bug Fixes
+
+* adapt commit msg semver (6c38380b)
+
+#### Chores
+
+* **ci:** commit changes from go-semantic-release (d3e91ad1)
+
+
 ## 2.3.0 (2023-03-21)
 
 #### Feature
