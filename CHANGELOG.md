@@ -1,3 +1,10 @@
+## 2.3.4 (2023-03-21)
+
+#### Bug Fixes
+
+* cleanup action v2 (1acbfacf)
+
+
 ## 2.3.3 (2023-03-21)
 
 #### Bug Fixes
