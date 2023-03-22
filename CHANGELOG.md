@@ -1,3 +1,10 @@
+## 2.3.5 (2023-03-22)
+
+#### Bug Fixes
+
+* branch tag not on main (ab4811a0)
+
+
 ## 2.3.4 (2023-03-21)
 
 #### Bug Fixes
