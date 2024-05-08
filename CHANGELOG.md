@@ -1,3 +1,10 @@
+## 2.3.6 (2024-05-08)
+
+#### Bug Fixes
+
+* Change workflow (#7) (ecce9c38)
+
+
 ## 2.3.5 (2023-03-22)
 
 #### Bug Fixes
