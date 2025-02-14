@@ -1,3 +1,15 @@
+## 2.4.0 (2025-02-14)
+
+#### Feature
+
+* configuration by file (#9) (9d117be3)
+
+#### Bug Fixes
+
+* new container build (fcc8690f)
+* new container build (f4c5d8c8)
+
+
 ## 2.3.6 (2024-05-08)
 
 #### Bug Fixes
