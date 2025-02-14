@@ -144,6 +144,15 @@ function handleIdx(req, res) {
   })
 
 }
+const ini = require('ini');
+if (fs.existsSync('/etc/config/config.properties') ) { 
+  console.log("reading config from /etc/config/config.properties")
+  const config = ini.parse(fs.readFileSync('/etc/config/config.properties', 'utf-8'));
+  liveRequestCount = config.live
+  readyRequestCount = config.ready
+  serverport = config.port
+  console.log("switching live count to %d and ready count to %d", liveRequestCount, readyRequestCount)
+}
 
 var wsrv = http.createServer(handleRequest);
 
