@@ -1,3 +1,10 @@
+## 2.4.1 (2025-02-18)
+
+#### Bug Fixes
+
+* exposure of port 8080 (ca2e38bb)
+
+
 ## 2.4.0 (2025-02-14)
 
 #### Feature
