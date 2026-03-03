@@ -1,3 +1,12 @@
+## 2.4.2 (2026-03-03)
+
+#### Bug Fixes
+
+* update build (6cd6746b)
+* update build (80b619a7)
+* update build (0804e1f1)
+
+
 ## 2.4.1 (2025-02-18)
 
 #### Bug Fixes
